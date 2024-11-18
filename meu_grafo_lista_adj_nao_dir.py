@@ -1,8 +1,8 @@
-from bibgrafo.grafo_lista_adjacencia import GrafoListaAdjacencia
+from bibgrafo.grafo_lista_adj_nao_dir import GrafoListaAdjacenciaNaoDirecionado
 from bibgrafo.grafo_errors import *
 
 
-class MeuGrafo(GrafoListaAdjacencia):
+class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
     def vertices_nao_adjacentes(self):
         '''
@@ -11,23 +11,24 @@ class MeuGrafo(GrafoListaAdjacencia):
         Onde X, Z e W são vértices no grafo que não tem uma aresta entre eles.
         :return: Um objeto do tipo set que contém os pares de vértices não adjacentes
         '''
-        conjunto_vertices=set()
-        quant_vertices= len(self.vertices)
+        conjunto_vertices = set()
+        quant_vertices = len(self.vertices)
 
         for i in range(quant_vertices):
-            for j in range(i+1,quant_vertices):
-                cond=0
+            for j in range(i + 1, quant_vertices):
+                cond = 0
                 for k in self.arestas:
-                    if (self.arestas[k].v1.rotulo==  self.vertices[i].rotulo) and (self.arestas[k].v2.rotulo== self.vertices[j].rotulo):
-                        cond=1
+                    if (self.arestas[k].v1.rotulo == self.vertices[i].rotulo) and (
+                            self.arestas[k].v2.rotulo == self.vertices[j].rotulo):
+                        cond = 1
                         break
-                    if(self.arestas[k].v1.rotulo==  self.vertices[j].rotulo) and (self.arestas[k].v2.rotulo== self.vertices[i].rotulo):
-                        cond=1
+                    if (self.arestas[k].v1.rotulo == self.vertices[j].rotulo) and (
+                            self.arestas[k].v2.rotulo == self.vertices[i].rotulo):
+                        cond = 1
                         break
-                if(cond==0):
+                if (cond == 0):
                     conjunto_vertices.add(self.vertices[i].rotulo + '-' + self.vertices[j].rotulo)
         return conjunto_vertices
-
 
     def ha_laco(self):
         '''
@@ -35,11 +36,9 @@ class MeuGrafo(GrafoListaAdjacencia):
         :return: Um valor booleano que indica se existe algum laço.
         '''
         for i in self.arestas:
-            if  self.arestas[i].v1 == self.arestas[i].v2:
+            if self.arestas[i].v1 == self.arestas[i].v2:
                 return True
         return False
-
-
 
     def grau(self, V=''):
         '''
@@ -48,14 +47,14 @@ class MeuGrafo(GrafoListaAdjacencia):
         :return: Um valor inteiro que indica o grau do vértice
         :raises: VerticeInvalidoError se o vértice não existe no grafo
         '''
-        cont=0
+        cont = 0
         if not self.existe_rotulo_vertice(V):
-            raise VerticeInvalidoError ("Não existe o vertice")
+            raise VerticeInvalidoError("Não existe o vertice")
         for i in self.arestas:
             if self.arestas[i].v1.rotulo == V:
-                cont+=1
-            if self.arestas[i].v2.rotulo ==V:
-                cont+=1
+                cont += 1
+            if self.arestas[i].v2.rotulo == V:
+                cont += 1
         return cont
 
     def ha_paralelas(self):
@@ -68,9 +67,11 @@ class MeuGrafo(GrafoListaAdjacencia):
             for i in self.arestas:
                 if a == i:
                     continue
-                if ((self.arestas[a].v1 == self.arestas[i].v1 and self.arestas[a].v2 == self.arestas[i].v2) or (self.arestas[a].v2 == self.arestas[i].v1 and self.arestas[a].v1 == self.arestas[i].v2)):
+                if ((self.arestas[a].v1 == self.arestas[i].v1 and self.arestas[a].v2 == self.arestas[i].v2) or (
+                        self.arestas[a].v2 == self.arestas[i].v1 and self.arestas[a].v1 == self.arestas[i].v2)):
                     return True
         return False
+
     def arestas_sobre_vertice(self, V):
         '''
         Provê uma lista que contém os rótulos das arestas que incidem sobre o vértice passado como parâmetro
@@ -78,7 +79,7 @@ class MeuGrafo(GrafoListaAdjacencia):
         :return: Uma lista os rótulos das arestas que incidem sobre o vértice
         :raises: VerticeInvalidoException se o vértice não existe no grafo
         '''
-        lista_aresta=set()
+        lista_aresta = set()
         if not self.existe_rotulo_vertice(V):
             raise VerticeInvalidoError("Não existe o vertice")
         for i in self.arestas:
@@ -87,7 +88,6 @@ class MeuGrafo(GrafoListaAdjacencia):
             if self.arestas[i].v2.rotulo == V:
                 lista_aresta.add(i)
         return lista_aresta
-
 
     def eh_completo(self):
         '''
