@@ -1,5 +1,6 @@
 from bibgrafo.grafo_lista_adj_nao_dir import GrafoListaAdjacenciaNaoDirecionado
 from bibgrafo.grafo_errors import *
+from collections import deque
 
 
 class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
@@ -87,7 +88,7 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
                 lista_aresta.add(i)
             if self.arestas[i].v2.rotulo == V:
                 lista_aresta.add(i)
-        return lista_aresta
+        return set(sorted(lista_aresta))
 
     def eh_completo(self):
         '''
@@ -105,3 +106,65 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
             return True
 
         return False
+
+    def dfs(self, V=''):
+        arvore_dfs=MeuGrafo()
+        arvore_dfs.adiciona_vertice(V)
+        return self.dfs_rec(V,arvore_dfs)
+
+    def dfs_rec(self, V, arvore_dfs):
+        arestas= sorted(self.arestas_sobre_vertice(V))
+        for i in arestas:
+            if arvore_dfs.existe_rotulo_aresta(i):
+                continue
+            else:
+               arestas2=self.get_aresta(i)
+               if arestas2.v1.rotulo==V:
+                   vertice_oposto= arestas2.v2.rotulo
+               else:
+                   vertice_oposto=arestas2.v1.rotulo
+               if arvore_dfs.existe_rotulo_vertice(vertice_oposto):
+                   continue
+               else:
+                   arvore_dfs.adiciona_vertice(vertice_oposto)
+                   arvore_dfs.adiciona_aresta(arestas2)
+                   self.dfs_rec(vertice_oposto,arvore_dfs)
+        return arvore_dfs
+
+
+    def bfs(self, V=''):
+        arvore_bfs = MeuGrafo()
+        arvore_bfs.adiciona_vertice(V)
+        return self.rec(V, arvore_bfs)
+
+
+    def rec(self,V,arvore_bfs):
+        lista_vertices = []
+        arestas = sorted(self.arestas_sobre_vertice(V))
+        for i in arestas:
+            if arvore_bfs.existe_rotulo_aresta(i):
+                continue
+            else:
+                arestas2 = self.get_aresta(i)
+                if arestas2.v1.rotulo == V:
+                    vertice_oposto = arestas2.v2.rotulo
+                else:
+                    vertice_oposto = arestas2.v1.rotulo
+                if arvore_bfs.existe_rotulo_vertice(vertice_oposto):
+                    continue
+                else:
+                    arvore_bfs.adiciona_vertice(vertice_oposto)
+                    arvore_bfs.adiciona_aresta(arestas2)
+                    lista_vertices.append(vertice_oposto)
+        for i in lista_vertices:
+            self.rec(i,arvore_bfs)
+
+        return arvore_bfs
+
+    def ha_ciclo():
+        
+
+
+
+
+

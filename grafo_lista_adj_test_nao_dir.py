@@ -75,6 +75,484 @@ class TestGrafo(unittest.TestCase):
         # Grafo p\teste de remoção em casta
         self.g_r = GrafoBuilder().tipo(MeuGrafo()).vertices(2).arestas(1).build()
 
+        #Teste DFS
+
+        self.g_4 = MeuGrafo()
+        self.g_4.adiciona_vertice("A")
+        self.g_4.adiciona_vertice("B")
+        self.g_4.adiciona_vertice("C")
+        self.g_4.adiciona_vertice("D")
+        self.g_4.adiciona_aresta("a1", "A", "B")
+        self.g_4.adiciona_aresta("a2", "B", "C")
+        self.g_4.adiciona_aresta("a3", "A", "D")
+        #começando da raiz A
+        self.g_4_dfs = MeuGrafo()
+        self.g_4_dfs.adiciona_vertice("A")
+        self.g_4_dfs.adiciona_vertice("B")
+        self.g_4_dfs.adiciona_vertice("C")
+        self.g_4_dfs.adiciona_vertice("D")
+        self.g_4_dfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_dfs.adiciona_aresta("a2", "B", "C")
+        self.g_4_dfs.adiciona_aresta("a3", "A", "D")
+
+        #Começando da raiz C
+
+        self.g_4_dfs = MeuGrafo()
+        self.g_4_dfs.adiciona_vertice("A")
+        self.g_4_dfs.adiciona_vertice("B")
+        self.g_4_dfs.adiciona_vertice("C")
+        self.g_4_dfs.adiciona_vertice("D")
+        self.g_4_dfs.adiciona_aresta("a2", "B", "C")
+        self.g_4_dfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_dfs.adiciona_aresta("a3", "A", "D")
+
+        #Começando da raiz D
+        self.g_4_dfs = MeuGrafo()
+        self.g_4_dfs.adiciona_vertice("A")
+        self.g_4_dfs.adiciona_vertice("B")
+        self.g_4_dfs.adiciona_vertice("C")
+        self.g_4_dfs.adiciona_vertice("D")
+        self.g_4_dfs.adiciona_aresta("a3", "A", "D")
+        self.g_4_dfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_dfs.adiciona_aresta("a2", "B", "C")
+
+        #Começando da raiz B
+        self.g_4_dfs = MeuGrafo()
+        self.g_4_dfs.adiciona_vertice("A")
+        self.g_4_dfs.adiciona_vertice("B")
+        self.g_4_dfs.adiciona_vertice("C")
+        self.g_4_dfs.adiciona_vertice("D")
+        self.g_4_dfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_dfs.adiciona_aresta("a3", "A", "D")
+        self.g_4_dfs.adiciona_aresta("a2", "B", "C")
+
+
+
+
+
+        self.g_5 = MeuGrafo()
+        self.g_5.adiciona_vertice("A")
+        self.g_5.adiciona_vertice("E")
+        self.g_5.adiciona_vertice("I")
+        self.g_5.adiciona_vertice("C")
+        self.g_5.adiciona_vertice("K")
+        self.g_5.adiciona_vertice("J")
+        self.g_5.adiciona_aresta("a1", "A", "E")
+        self.g_5.adiciona_aresta("a2", "A", "I")
+        self.g_5.adiciona_aresta("a3", "I", "C")
+        self.g_5.adiciona_aresta("a4", "A", "K")
+        self.g_5.adiciona_aresta("a5", "K", "J")
+
+        #Grafo começando da raiz A
+
+        self.g_5_dfs = MeuGrafo()
+        self.g_5_dfs.adiciona_vertice("A")
+        self.g_5_dfs.adiciona_vertice("E")
+        self.g_5_dfs.adiciona_vertice("I")
+        self.g_5_dfs.adiciona_vertice("C")
+        self.g_5_dfs.adiciona_vertice("K")
+        self.g_5_dfs.adiciona_vertice("J")
+        self.g_5_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_dfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_dfs.adiciona_aresta("a5", "K", "J")
+        self.g_5_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_dfs.adiciona_aresta("a3", "I", "C")
+
+        #Começando da raiz J
+
+        self.g_5_dfs = MeuGrafo()
+        self.g_5_dfs.adiciona_vertice("A")
+        self.g_5_dfs.adiciona_vertice("E")
+        self.g_5_dfs.adiciona_vertice("I")
+        self.g_5_dfs.adiciona_vertice("C")
+        self.g_5_dfs.adiciona_vertice("K")
+        self.g_5_dfs.adiciona_vertice("J")
+        self.g_5_dfs.adiciona_aresta("a5", "K", "J")
+        self.g_5_dfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_dfs.adiciona_aresta("a3", "I", "C")
+
+        #Começando da raiz I
+
+        self.g_5_dfs = MeuGrafo()
+        self.g_5_dfs.adiciona_vertice("A")
+        self.g_5_dfs.adiciona_vertice("E")
+        self.g_5_dfs.adiciona_vertice("I")
+        self.g_5_dfs.adiciona_vertice("C")
+        self.g_5_dfs.adiciona_vertice("K")
+        self.g_5_dfs.adiciona_vertice("J")
+        self.g_5_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_dfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_dfs.adiciona_aresta("a5", "K", "J")
+        self.g_5_dfs.adiciona_aresta("a3", "I", "C")
+
+
+        self.g_6 = MeuGrafo()
+        self.g_6.adiciona_vertice("A")
+        self.g_6.adiciona_vertice("E")
+        self.g_6.adiciona_vertice("I")
+        self.g_6.adiciona_vertice("C")
+        self.g_6.adiciona_vertice("K")
+        self.g_6.adiciona_vertice("J")
+        self.g_6.adiciona_vertice("M")
+        self.g_6.adiciona_vertice("Z")
+        self.g_6.adiciona_aresta("a1", "I", "A")
+        self.g_6.adiciona_aresta("a2", "A", "E")
+        self.g_6.adiciona_aresta("a3", "A", "K")
+        self.g_6.adiciona_aresta("a4", "K", "J")
+        self.g_6.adiciona_aresta("a5", "I", "Z")
+        self.g_6.adiciona_aresta("a6", "K", "M")
+        self.g_6.adiciona_aresta("a7", "M", "C")
+
+        #Começando da raiz A
+
+        self.g_6_dfs = MeuGrafo()
+        self.g_6_dfs.adiciona_vertice("A")
+        self.g_6_dfs.adiciona_vertice("E")
+        self.g_6_dfs.adiciona_vertice("I")
+        self.g_6_dfs.adiciona_vertice("C")
+        self.g_6_dfs.adiciona_vertice("K")
+        self.g_6_dfs.adiciona_vertice("J")
+        self.g_6_dfs.adiciona_vertice("M")
+        self.g_6_dfs.adiciona_vertice("Z")
+        self.g_6_dfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_dfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_dfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_dfs.adiciona_aresta("a3", "A", "K")
+        self.g_6_dfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_dfs.adiciona_aresta("a7", "M", "C")
+        self.g_6_dfs.adiciona_aresta("a4", "K", "J")
+
+        #Começando Da raiz K
+
+        self.g_6_dfs = MeuGrafo()
+        self.g_6_dfs.adiciona_vertice("A")
+        self.g_6_dfs.adiciona_vertice("E")
+        self.g_6_dfs.adiciona_vertice("I")
+        self.g_6_dfs.adiciona_vertice("C")
+        self.g_6_dfs.adiciona_vertice("K")
+        self.g_6_dfs.adiciona_vertice("J")
+        self.g_6_dfs.adiciona_vertice("M")
+        self.g_6_dfs.adiciona_vertice("Z")
+        self.g_6_dfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_dfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_dfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_dfs.adiciona_aresta("a4", "K", "J")
+        self.g_6_dfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_dfs.adiciona_aresta("a7", "M", "C")
+
+        #Começando da Raiz M
+
+        self.g_6_dfs = MeuGrafo()
+        self.g_6_dfs.adiciona_vertice("A")
+        self.g_6_dfs.adiciona_vertice("E")
+        self.g_6_dfs.adiciona_vertice("I")
+        self.g_6_dfs.adiciona_vertice("C")
+        self.g_6_dfs.adiciona_vertice("K")
+        self.g_6_dfs.adiciona_vertice("J")
+        self.g_6_dfs.adiciona_vertice("M")
+        self.g_6_dfs.adiciona_vertice("Z")
+        self.g_6_dfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_dfs.adiciona_aresta("a3", "A", "K")
+        self.g_6_dfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_dfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_dfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_dfs.adiciona_aresta("a4", "K", "J")
+        self.g_6_dfs.adiciona_aresta("a7", "M", "C")
+
+
+
+        self.g_7 = MeuGrafo()
+        self.g_7.adiciona_vertice("A")
+        self.g_7.adiciona_vertice("E")
+        self.g_7.adiciona_vertice("I")
+        self.g_7.adiciona_vertice("C")
+        self.g_7.adiciona_vertice("M")
+        self.g_7.adiciona_vertice("Z")
+        self.g_7.adiciona_vertice("X")
+
+        self.g_7.adiciona_aresta("a1", "A", "E")
+        self.g_7.adiciona_aresta("a2", "A", "I")
+        self.g_7.adiciona_aresta("a3", "I", "C")
+        self.g_7.adiciona_aresta("a4", "E", "M")
+        self.g_7.adiciona_aresta("a5", "C", "Z")
+        self.g_7.adiciona_aresta("a6", "C", "X")
+
+    #Começando da raiz A
+
+        self.g_7_dfs = MeuGrafo()
+        self.g_7_dfs.adiciona_vertice("A")
+        self.g_7_dfs.adiciona_vertice("E")
+        self.g_7_dfs.adiciona_vertice("I")
+        self.g_7_dfs.adiciona_vertice("C")
+        self.g_7_dfs.adiciona_vertice("M")
+        self.g_7_dfs.adiciona_vertice("Z")
+        self.g_7_dfs.adiciona_vertice("X")
+
+        self.g_7_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_dfs.adiciona_aresta("a4", "E", "M")
+        self.g_7_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_dfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_dfs.adiciona_aresta("a6","C","X")
+
+        #Começando da raiz Z
+
+        self.g_7_dfs = MeuGrafo()
+        self.g_7_dfs.adiciona_vertice("A")
+        self.g_7_dfs.adiciona_vertice("E")
+        self.g_7_dfs.adiciona_vertice("I")
+        self.g_7_dfs.adiciona_vertice("C")
+        self.g_7_dfs.adiciona_vertice("M")
+        self.g_7_dfs.adiciona_vertice("Z")
+        self.g_7_dfs.adiciona_vertice("X")
+
+        self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_dfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_dfs.adiciona_aresta("a4", "E", "M")
+        self.g_7_dfs.adiciona_aresta("a6", "C", "X")
+
+        #Começando da raiz C
+        self.g_7_dfs = MeuGrafo()
+        self.g_7_dfs.adiciona_vertice("A")
+        self.g_7_dfs.adiciona_vertice("E")
+        self.g_7_dfs.adiciona_vertice("I")
+        self.g_7_dfs.adiciona_vertice("C")
+        self.g_7_dfs.adiciona_vertice("M")
+        self.g_7_dfs.adiciona_vertice("Z")
+        self.g_7_dfs.adiciona_vertice("X")
+
+        self.g_7_dfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_dfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_dfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_dfs.adiciona_aresta("a4", "E", "M")
+        self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_dfs.adiciona_aresta("a6", "C", "X")
+
+
+
+
+
+    #Teste BFS
+        #Começa da raiz A
+        self.g_4_bfs = MeuGrafo()
+        self.g_4_bfs.adiciona_vertice("A")
+        self.g_4_bfs.adiciona_vertice("B")
+        self.g_4_bfs.adiciona_vertice("C")
+        self.g_4_bfs.adiciona_vertice("D")
+        self.g_4_bfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_bfs.adiciona_aresta("a3", "A", "D")
+        self.g_4_bfs.adiciona_aresta("a2", "B", "C")
+    #Começando da raiz D
+        self.g_4_bfs = MeuGrafo()
+        self.g_4_bfs.adiciona_vertice("A")
+        self.g_4_bfs.adiciona_vertice("B")
+        self.g_4_bfs.adiciona_vertice("C")
+        self.g_4_bfs.adiciona_vertice("D")
+        self.g_4_bfs.adiciona_aresta("a3", "A", "D")
+        self.g_4_bfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_bfs.adiciona_aresta("a2", "B", "C")
+
+    #Começando da raiz B
+        self.g_4_bfs = MeuGrafo()
+        self.g_4_bfs.adiciona_vertice("A")
+        self.g_4_bfs.adiciona_vertice("B")
+        self.g_4_bfs.adiciona_vertice("C")
+        self.g_4_bfs.adiciona_vertice("D")
+        self.g_4_bfs.adiciona_aresta("a1", "A", "B")
+        self.g_4_bfs.adiciona_aresta("a2", "B", "C")
+        self.g_4_bfs.adiciona_aresta("a3", "A", "D")
+
+    #Começando da raiz A
+
+        self.g_5_bfs = MeuGrafo()
+        self.g_5_bfs.adiciona_vertice("A")
+        self.g_5_bfs.adiciona_vertice("E")
+        self.g_5_bfs.adiciona_vertice("I")
+        self.g_5_bfs.adiciona_vertice("C")
+        self.g_5_bfs.adiciona_vertice("K")
+        self.g_5_bfs.adiciona_vertice("J")
+        self.g_5_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_bfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_5_bfs.adiciona_aresta("a5", "K", "J")
+
+        #Começando da raiz I
+        self.g_5_bfs = MeuGrafo()
+        self.g_5_bfs.adiciona_vertice("A")
+        self.g_5_bfs.adiciona_vertice("E")
+        self.g_5_bfs.adiciona_vertice("I")
+        self.g_5_bfs.adiciona_vertice("C")
+        self.g_5_bfs.adiciona_vertice("K")
+        self.g_5_bfs.adiciona_vertice("J")
+        self.g_5_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_5_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_bfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_bfs.adiciona_aresta("a5", "K", "J")
+
+        #Começando da raiz  K
+
+        self.g_5_bfs = MeuGrafo()
+        self.g_5_bfs.adiciona_vertice("A")
+        self.g_5_bfs.adiciona_vertice("E")
+        self.g_5_bfs.adiciona_vertice("I")
+        self.g_5_bfs.adiciona_vertice("C")
+        self.g_5_bfs.adiciona_vertice("K")
+        self.g_5_bfs.adiciona_vertice("J")
+        self.g_5_bfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_bfs.adiciona_aresta("a5", "K", "J")
+        self.g_5_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_bfs.adiciona_aresta("a3", "I", "C")
+
+        #Começando da raiz E
+
+        self.g_5_bfs = MeuGrafo()
+        self.g_5_bfs.adiciona_vertice("A")
+        self.g_5_bfs.adiciona_vertice("E")
+        self.g_5_bfs.adiciona_vertice("I")
+        self.g_5_bfs.adiciona_vertice("C")
+        self.g_5_bfs.adiciona_vertice("K")
+        self.g_5_bfs.adiciona_vertice("J")
+        self.g_5_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_5_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_5_bfs.adiciona_aresta("a4", "A", "K")
+        self.g_5_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_5_bfs.adiciona_aresta("a5", "K", "J")
+
+
+        #Começando da raiz A
+        self.g_6_bfs = MeuGrafo()
+        self.g_6_bfs.adiciona_vertice("A")
+        self.g_6_bfs.adiciona_vertice("E")
+        self.g_6_bfs.adiciona_vertice("I")
+        self.g_6_bfs.adiciona_vertice("C")
+        self.g_6_bfs.adiciona_vertice("K")
+        self.g_6_bfs.adiciona_vertice("J")
+        self.g_6_bfs.adiciona_vertice("M")
+        self.g_6_bfs.adiciona_vertice("Z")
+        self.g_6_bfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_bfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_bfs.adiciona_aresta("a3", "A", "K")
+        self.g_6_bfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_bfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_bfs.adiciona_aresta("a4", "K", "J")
+        self.g_6_bfs.adiciona_aresta("a7","M","C")
+
+        #Começando da raiz J
+
+        self.g_6_bfs = MeuGrafo()
+        self.g_6_bfs.adiciona_vertice("A")
+        self.g_6_bfs.adiciona_vertice("E")
+        self.g_6_bfs.adiciona_vertice("I")
+        self.g_6_bfs.adiciona_vertice("C")
+        self.g_6_bfs.adiciona_vertice("K")
+        self.g_6_bfs.adiciona_vertice("J")
+        self.g_6_bfs.adiciona_vertice("M")
+        self.g_6_bfs.adiciona_vertice("Z")
+        self.g_6_bfs.adiciona_aresta("a4", "K", "J")
+        self.g_6_bfs.adiciona_aresta("a3", "A", "K")
+        self.g_6_bfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_bfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_bfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_bfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_bfs.adiciona_aresta("a7", "M", "C")
+
+        #Começando da raiz I
+
+        self.g_6_bfs = MeuGrafo()
+        self.g_6_bfs.adiciona_vertice("A")
+        self.g_6_bfs.adiciona_vertice("E")
+        self.g_6_bfs.adiciona_vertice("I")
+        self.g_6_bfs.adiciona_vertice("C")
+        self.g_6_bfs.adiciona_vertice("K")
+        self.g_6_bfs.adiciona_vertice("J")
+        self.g_6_bfs.adiciona_vertice("M")
+        self.g_6_bfs.adiciona_vertice("Z")
+        self.g_6_bfs.adiciona_aresta("a1", "I", "A")
+        self.g_6_bfs.adiciona_aresta("a5", "I", "Z")
+        self.g_6_bfs.adiciona_aresta("a2", "A", "E")
+        self.g_6_bfs.adiciona_aresta("a3", "A", "K")
+        self.g_6_bfs.adiciona_aresta("a4", "K", "J")
+        self.g_6_bfs.adiciona_aresta("a6", "K", "M")
+        self.g_6_bfs.adiciona_aresta("a7", "M", "C")
+
+        #Começando da raiz A
+
+        self.g_7_bfs = MeuGrafo()
+        self.g_7_bfs.adiciona_vertice("A")
+        self.g_7_bfs.adiciona_vertice("E")
+        self.g_7_bfs.adiciona_vertice("I")
+        self.g_7_bfs.adiciona_vertice("C")
+        self.g_7_bfs.adiciona_vertice("M")
+        self.g_7_bfs.adiciona_vertice("Z")
+        self.g_7_bfs.adiciona_vertice("X")
+        self.g_7_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_bfs.adiciona_aresta("a4", "E", "M")
+        self.g_7_bfs.adiciona_aresta("a6", "C", "X")
+        self.g_7_bfs.adiciona_aresta("a5","C","Z")
+
+        #começando na raiz C
+        self.g_7_bfs = MeuGrafo()
+        self.g_7_bfs.adiciona_vertice("A")
+        self.g_7_bfs.adiciona_vertice("E")
+        self.g_7_bfs.adiciona_vertice("I")
+        self.g_7_bfs.adiciona_vertice("C")
+        self.g_7_bfs.adiciona_vertice("M")
+        self.g_7_bfs.adiciona_vertice("Z")
+        self.g_7_bfs.adiciona_vertice("X")
+        self.g_7_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_bfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_bfs.adiciona_aresta("a6", "C", "X")
+        self.g_7_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_bfs.adiciona_aresta("a4", "E", "M")
+
+        #Começando da raiz M
+        self.g_7_bfs = MeuGrafo()
+        self.g_7_bfs.adiciona_vertice("A")
+        self.g_7_bfs.adiciona_vertice("E")
+        self.g_7_bfs.adiciona_vertice("I")
+        self.g_7_bfs.adiciona_vertice("C")
+        self.g_7_bfs.adiciona_vertice("M")
+        self.g_7_bfs.adiciona_vertice("Z")
+        self.g_7_bfs.adiciona_vertice("X")
+        self.g_7_bfs.adiciona_aresta("a4", "E", "M")
+        self.g_7_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_bfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_bfs.adiciona_aresta("a6", "C", "X")
+
+        #Começando da raiz Z
+
+        self.g_7_bfs = MeuGrafo()
+        self.g_7_bfs.adiciona_vertice("A")
+        self.g_7_bfs.adiciona_vertice("E")
+        self.g_7_bfs.adiciona_vertice("I")
+        self.g_7_bfs.adiciona_vertice("C")
+        self.g_7_bfs.adiciona_vertice("M")
+        self.g_7_bfs.adiciona_vertice("Z")
+        self.g_7_bfs.adiciona_vertice("X")
+        self.g_7_bfs.adiciona_aresta("a5", "C", "Z")
+        self.g_7_bfs.adiciona_aresta("a3", "I", "C")
+        self.g_7_bfs.adiciona_aresta("a6", "C", "X")
+        self.g_7_bfs.adiciona_aresta("a2", "A", "I")
+        self.g_7_bfs.adiciona_aresta("a1", "A", "E")
+        self.g_7_bfs.adiciona_aresta("a4", "E", "M")
+
+
+
+
+
     def test_adiciona_aresta(self):
         self.assertTrue(self.g_p.adiciona_aresta('a10', 'J', 'C'))
         a = Aresta("zxc", self.g_p.get_vertice("C"), self.g_p.get_vertice("Z"))
@@ -193,3 +671,36 @@ class TestGrafo(unittest.TestCase):
         self.assertFalse((self.g_l5.eh_completo()))
         self.assertFalse((self.g_d.eh_completo()))
         self.assertFalse((self.g_d2.eh_completo()))
+
+    def teste_dfs(self ):
+        self.assertEqual(self.g_4.dfs('A'), self.g_4_dfs)
+        self.assertEqual(self.g_4.dfs('C'), self.g_4_dfs)
+        self.assertEqual(self.g_4.dfs('D'), self.g_4_dfs)
+        self.assertEqual(self.g_4.dfs('B'), self.g_4_dfs)
+        self.assertEqual(self.g_5.dfs('A'), self.g_5_dfs)
+        self.assertEqual(self.g_5.dfs('J'), self.g_5_dfs)
+        self.assertEqual(self.g_5.dfs('I'), self.g_5_dfs)
+        self.assertEqual(self.g_6.dfs('A'), self.g_6_dfs)
+        self.assertEqual(self.g_6.dfs('K'), self.g_6_dfs)
+        self.assertEqual(self.g_6.dfs('M'), self.g_6_dfs)
+        self.assertEqual(self.g_7.dfs('A'),self.g_7_dfs)
+        self.assertEqual(self.g_7.dfs('C'), self.g_7_dfs)
+        self.assertEqual(self.g_7.dfs('Z'), self.g_7_dfs)
+
+    def teste_bfs(self):
+        self.assertEqual(self.g_4.bfs('A'), self.g_4_bfs)
+        self.assertEqual(self.g_4.bfs('D'), self.g_4_bfs)
+        self.assertEqual(self.g_4.bfs('B'), self.g_4_bfs)
+        self.assertEqual(self.g_5.bfs('A'), self.g_5_bfs)
+        self.assertEqual(self.g_5.bfs('I'), self.g_5_bfs)
+        self.assertEqual(self.g_5.bfs('K'), self.g_5_bfs)
+        self.assertEqual(self.g_5.bfs('E'), self.g_5_bfs)
+        self.assertEqual(self.g_6.bfs('A'), self.g_6_bfs)
+        self.assertEqual(self.g_6.bfs('I'), self.g_6_bfs)
+        self.assertEqual(self.g_6.bfs('J'), self.g_6_bfs)
+        self.assertEqual(self.g_7.bfs('A'), self.g_7_bfs)
+        self.assertEqual(self.g_7.bfs('C'), self.g_7_bfs)
+        self.assertEqual(self.g_7.bfs('M'), self.g_7_bfs)
+        self.assertEqual(self.g_7.bfs('Z'), self.g_7_bfs)
+
+
