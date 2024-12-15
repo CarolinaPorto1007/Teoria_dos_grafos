@@ -161,8 +161,118 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         return arvore_bfs
 
-    def ha_ciclo():
-        
+    def caminho(self, n):
+        if n < 1:
+            return False
+
+        vertices = sorted([str(v) for v in self.vertices])
+        arestas_visitadas = list()
+        caminho = list()
+
+        def percorre_grafo(raiz, arestas_usadas):
+            if raiz not in caminho:
+                caminho.append(raiz)
+
+            if len([v for v in caminho if not v.startswith('a')]) == n:
+                return True
+
+            for a in self.arestas_sobre_vertice(raiz):
+                if a in arestas_visitadas:
+                    continue
+
+                v1 = str(self.arestas[a].v1)
+                v2 = str(self.arestas[a].v2)
+                prox = v1 if v2 == raiz else v2
+
+                if prox in caminho:
+                    continue
+
+                arestas_visitadas.append(a)
+                caminho.append(a)
+                caminho.append(prox)
+
+                if percorre_grafo(prox, arestas_usadas + 1):
+                    return True
+
+                caminho.pop()
+                caminho.pop()
+                arestas_visitadas.pop()
+
+            return False
+
+        for v in vertices:
+            caminho.clear()
+            arestas_visitadas.clear()
+            if percorre_grafo(v, 0):
+                return caminho
+
+        return False
+
+    def ha_ciclo(self):
+        arestas_dfs = []
+        arestas_originais = []
+
+        resposta = []
+        resposta_final = []
+        aresta_retorno = str(self.arestas)
+        grafo_dfs = self.dfs("A")
+        for aresta in grafo_dfs.arestas:
+            arestas_dfs.append(aresta)
+        for aresta in self.arestas:
+            arestas_originais.append(aresta)
+        if len(arestas_originais) == len(arestas_dfs):
+            return False
+
+        for aresta in self.arestas:
+            if (aresta not in arestas_dfs):
+                aresta_retorno = aresta
+
+        vertice_inicio = self.arestas[aresta_retorno].v2.rotulo
+        encontrado = False
+        for aresta in grafo_dfs.arestas:
+            if grafo_dfs.arestas[aresta].v1.rotulo == vertice_inicio:
+                encontrado = True
+            if encontrado == True:
+                resposta.append(aresta)
+
+        for aresta in resposta[::-1]:
+            if (grafo_dfs.arestas[aresta].v2.rotulo == self.arestas[aresta_retorno].v1.rotulo):
+                resposta.append(aresta_retorno)
+
+                break
+            else:
+                indice = resposta.index(aresta)
+                resposta.pop(indice)
+
+        vertice_anterior = self.arestas[resposta[0]].v1.rotulo
+        for aresta in resposta:
+
+            if self.arestas[aresta].v1.rotulo == vertice_anterior:
+                resposta_final.append(self.arestas[aresta].v1.rotulo)
+
+            resposta_final.append(aresta)
+            resposta_final.append(self.arestas[aresta].v2.rotulo)
+            vertice_anterior = self.arestas[aresta].v1.rotulo
+
+        return resposta_final
+
+    def conexo(self):
+        if len(self.vertices) ==0:
+            return False
+
+        raiz= str(self.vertices[0])
+        dfs = self.dfs(raiz)
+
+        lista=[]
+        for i in self.vertices:
+            lista.append(i)
+        lista_dfs=[]
+        for j in dfs.vertices:
+            lista_dfs.append(j)
+
+        return len(lista_dfs) == len(lista)
+
+
 
 
 

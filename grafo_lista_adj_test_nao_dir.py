@@ -76,7 +76,6 @@ class TestGrafo(unittest.TestCase):
         self.g_r = GrafoBuilder().tipo(MeuGrafo()).vertices(2).arestas(1).build()
 
         #Teste DFS
-
         self.g_4 = MeuGrafo()
         self.g_4.adiciona_vertice("A")
         self.g_4.adiciona_vertice("B")
@@ -94,9 +93,7 @@ class TestGrafo(unittest.TestCase):
         self.g_4_dfs.adiciona_aresta("a1", "A", "B")
         self.g_4_dfs.adiciona_aresta("a2", "B", "C")
         self.g_4_dfs.adiciona_aresta("a3", "A", "D")
-
         #Começando da raiz C
-
         self.g_4_dfs = MeuGrafo()
         self.g_4_dfs.adiciona_vertice("A")
         self.g_4_dfs.adiciona_vertice("B")
@@ -105,7 +102,6 @@ class TestGrafo(unittest.TestCase):
         self.g_4_dfs.adiciona_aresta("a2", "B", "C")
         self.g_4_dfs.adiciona_aresta("a1", "A", "B")
         self.g_4_dfs.adiciona_aresta("a3", "A", "D")
-
         #Começando da raiz D
         self.g_4_dfs = MeuGrafo()
         self.g_4_dfs.adiciona_vertice("A")
@@ -115,7 +111,6 @@ class TestGrafo(unittest.TestCase):
         self.g_4_dfs.adiciona_aresta("a3", "A", "D")
         self.g_4_dfs.adiciona_aresta("a1", "A", "B")
         self.g_4_dfs.adiciona_aresta("a2", "B", "C")
-
         #Começando da raiz B
         self.g_4_dfs = MeuGrafo()
         self.g_4_dfs.adiciona_vertice("A")
@@ -125,10 +120,6 @@ class TestGrafo(unittest.TestCase):
         self.g_4_dfs.adiciona_aresta("a1", "A", "B")
         self.g_4_dfs.adiciona_aresta("a3", "A", "D")
         self.g_4_dfs.adiciona_aresta("a2", "B", "C")
-
-
-
-
 
         self.g_5 = MeuGrafo()
         self.g_5.adiciona_vertice("A")
@@ -142,9 +133,7 @@ class TestGrafo(unittest.TestCase):
         self.g_5.adiciona_aresta("a3", "I", "C")
         self.g_5.adiciona_aresta("a4", "A", "K")
         self.g_5.adiciona_aresta("a5", "K", "J")
-
         #Grafo começando da raiz A
-
         self.g_5_dfs = MeuGrafo()
         self.g_5_dfs.adiciona_vertice("A")
         self.g_5_dfs.adiciona_vertice("E")
@@ -157,9 +146,7 @@ class TestGrafo(unittest.TestCase):
         self.g_5_dfs.adiciona_aresta("a5", "K", "J")
         self.g_5_dfs.adiciona_aresta("a2", "A", "I")
         self.g_5_dfs.adiciona_aresta("a3", "I", "C")
-
         #Começando da raiz J
-
         self.g_5_dfs = MeuGrafo()
         self.g_5_dfs.adiciona_vertice("A")
         self.g_5_dfs.adiciona_vertice("E")
@@ -172,9 +159,7 @@ class TestGrafo(unittest.TestCase):
         self.g_5_dfs.adiciona_aresta("a1", "A", "E")
         self.g_5_dfs.adiciona_aresta("a2", "A", "I")
         self.g_5_dfs.adiciona_aresta("a3", "I", "C")
-
         #Começando da raiz I
-
         self.g_5_dfs = MeuGrafo()
         self.g_5_dfs.adiciona_vertice("A")
         self.g_5_dfs.adiciona_vertice("E")
@@ -187,7 +172,6 @@ class TestGrafo(unittest.TestCase):
         self.g_5_dfs.adiciona_aresta("a4", "A", "K")
         self.g_5_dfs.adiciona_aresta("a5", "K", "J")
         self.g_5_dfs.adiciona_aresta("a3", "I", "C")
-
 
         self.g_6 = MeuGrafo()
         self.g_6.adiciona_vertice("A")
@@ -205,9 +189,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6.adiciona_aresta("a5", "I", "Z")
         self.g_6.adiciona_aresta("a6", "K", "M")
         self.g_6.adiciona_aresta("a7", "M", "C")
-
         #Começando da raiz A
-
         self.g_6_dfs = MeuGrafo()
         self.g_6_dfs.adiciona_vertice("A")
         self.g_6_dfs.adiciona_vertice("E")
@@ -224,9 +206,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6_dfs.adiciona_aresta("a6", "K", "M")
         self.g_6_dfs.adiciona_aresta("a7", "M", "C")
         self.g_6_dfs.adiciona_aresta("a4", "K", "J")
-
         #Começando Da raiz K
-
         self.g_6_dfs = MeuGrafo()
         self.g_6_dfs.adiciona_vertice("A")
         self.g_6_dfs.adiciona_vertice("E")
@@ -242,9 +222,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6_dfs.adiciona_aresta("a4", "K", "J")
         self.g_6_dfs.adiciona_aresta("a6", "K", "M")
         self.g_6_dfs.adiciona_aresta("a7", "M", "C")
-
         #Começando da Raiz M
-
         self.g_6_dfs = MeuGrafo()
         self.g_6_dfs.adiciona_vertice("A")
         self.g_6_dfs.adiciona_vertice("E")
@@ -261,8 +239,6 @@ class TestGrafo(unittest.TestCase):
         self.g_6_dfs.adiciona_aresta("a2", "A", "E")
         self.g_6_dfs.adiciona_aresta("a4", "K", "J")
         self.g_6_dfs.adiciona_aresta("a7", "M", "C")
-
-
 
         self.g_7 = MeuGrafo()
         self.g_7.adiciona_vertice("A")
@@ -272,16 +248,13 @@ class TestGrafo(unittest.TestCase):
         self.g_7.adiciona_vertice("M")
         self.g_7.adiciona_vertice("Z")
         self.g_7.adiciona_vertice("X")
-
         self.g_7.adiciona_aresta("a1", "A", "E")
         self.g_7.adiciona_aresta("a2", "A", "I")
         self.g_7.adiciona_aresta("a3", "I", "C")
         self.g_7.adiciona_aresta("a4", "E", "M")
         self.g_7.adiciona_aresta("a5", "C", "Z")
         self.g_7.adiciona_aresta("a6", "C", "X")
-
-    #Começando da raiz A
-
+         #Começando da raiz A
         self.g_7_dfs = MeuGrafo()
         self.g_7_dfs.adiciona_vertice("A")
         self.g_7_dfs.adiciona_vertice("E")
@@ -290,16 +263,13 @@ class TestGrafo(unittest.TestCase):
         self.g_7_dfs.adiciona_vertice("M")
         self.g_7_dfs.adiciona_vertice("Z")
         self.g_7_dfs.adiciona_vertice("X")
-
         self.g_7_dfs.adiciona_aresta("a1", "A", "E")
         self.g_7_dfs.adiciona_aresta("a4", "E", "M")
         self.g_7_dfs.adiciona_aresta("a2", "A", "I")
         self.g_7_dfs.adiciona_aresta("a3", "I", "C")
         self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
         self.g_7_dfs.adiciona_aresta("a6","C","X")
-
         #Começando da raiz Z
-
         self.g_7_dfs = MeuGrafo()
         self.g_7_dfs.adiciona_vertice("A")
         self.g_7_dfs.adiciona_vertice("E")
@@ -308,14 +278,12 @@ class TestGrafo(unittest.TestCase):
         self.g_7_dfs.adiciona_vertice("M")
         self.g_7_dfs.adiciona_vertice("Z")
         self.g_7_dfs.adiciona_vertice("X")
-
         self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
         self.g_7_dfs.adiciona_aresta("a3", "I", "C")
         self.g_7_dfs.adiciona_aresta("a2", "A", "I")
         self.g_7_dfs.adiciona_aresta("a1", "A", "E")
         self.g_7_dfs.adiciona_aresta("a4", "E", "M")
         self.g_7_dfs.adiciona_aresta("a6", "C", "X")
-
         #Começando da raiz C
         self.g_7_dfs = MeuGrafo()
         self.g_7_dfs.adiciona_vertice("A")
@@ -325,17 +293,12 @@ class TestGrafo(unittest.TestCase):
         self.g_7_dfs.adiciona_vertice("M")
         self.g_7_dfs.adiciona_vertice("Z")
         self.g_7_dfs.adiciona_vertice("X")
-
         self.g_7_dfs.adiciona_aresta("a3", "I", "C")
         self.g_7_dfs.adiciona_aresta("a2", "A", "I")
         self.g_7_dfs.adiciona_aresta("a1", "A", "E")
         self.g_7_dfs.adiciona_aresta("a4", "E", "M")
         self.g_7_dfs.adiciona_aresta("a5", "C", "Z")
         self.g_7_dfs.adiciona_aresta("a6", "C", "X")
-
-
-
-
 
     #Teste BFS
         #Começa da raiz A
@@ -356,7 +319,6 @@ class TestGrafo(unittest.TestCase):
         self.g_4_bfs.adiciona_aresta("a3", "A", "D")
         self.g_4_bfs.adiciona_aresta("a1", "A", "B")
         self.g_4_bfs.adiciona_aresta("a2", "B", "C")
-
     #Começando da raiz B
         self.g_4_bfs = MeuGrafo()
         self.g_4_bfs.adiciona_vertice("A")
@@ -366,9 +328,7 @@ class TestGrafo(unittest.TestCase):
         self.g_4_bfs.adiciona_aresta("a1", "A", "B")
         self.g_4_bfs.adiciona_aresta("a2", "B", "C")
         self.g_4_bfs.adiciona_aresta("a3", "A", "D")
-
     #Começando da raiz A
-
         self.g_5_bfs = MeuGrafo()
         self.g_5_bfs.adiciona_vertice("A")
         self.g_5_bfs.adiciona_vertice("E")
@@ -381,7 +341,6 @@ class TestGrafo(unittest.TestCase):
         self.g_5_bfs.adiciona_aresta("a4", "A", "K")
         self.g_5_bfs.adiciona_aresta("a3", "I", "C")
         self.g_5_bfs.adiciona_aresta("a5", "K", "J")
-
         #Começando da raiz I
         self.g_5_bfs = MeuGrafo()
         self.g_5_bfs.adiciona_vertice("A")
@@ -395,9 +354,7 @@ class TestGrafo(unittest.TestCase):
         self.g_5_bfs.adiciona_aresta("a1", "A", "E")
         self.g_5_bfs.adiciona_aresta("a4", "A", "K")
         self.g_5_bfs.adiciona_aresta("a5", "K", "J")
-
         #Começando da raiz  K
-
         self.g_5_bfs = MeuGrafo()
         self.g_5_bfs.adiciona_vertice("A")
         self.g_5_bfs.adiciona_vertice("E")
@@ -410,9 +367,7 @@ class TestGrafo(unittest.TestCase):
         self.g_5_bfs.adiciona_aresta("a1", "A", "E")
         self.g_5_bfs.adiciona_aresta("a2", "A", "I")
         self.g_5_bfs.adiciona_aresta("a3", "I", "C")
-
         #Começando da raiz E
-
         self.g_5_bfs = MeuGrafo()
         self.g_5_bfs.adiciona_vertice("A")
         self.g_5_bfs.adiciona_vertice("E")
@@ -425,8 +380,6 @@ class TestGrafo(unittest.TestCase):
         self.g_5_bfs.adiciona_aresta("a4", "A", "K")
         self.g_5_bfs.adiciona_aresta("a3", "I", "C")
         self.g_5_bfs.adiciona_aresta("a5", "K", "J")
-
-
         #Começando da raiz A
         self.g_6_bfs = MeuGrafo()
         self.g_6_bfs.adiciona_vertice("A")
@@ -444,9 +397,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6_bfs.adiciona_aresta("a6", "K", "M")
         self.g_6_bfs.adiciona_aresta("a4", "K", "J")
         self.g_6_bfs.adiciona_aresta("a7","M","C")
-
         #Começando da raiz J
-
         self.g_6_bfs = MeuGrafo()
         self.g_6_bfs.adiciona_vertice("A")
         self.g_6_bfs.adiciona_vertice("E")
@@ -463,9 +414,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6_bfs.adiciona_aresta("a2", "A", "E")
         self.g_6_bfs.adiciona_aresta("a5", "I", "Z")
         self.g_6_bfs.adiciona_aresta("a7", "M", "C")
-
         #Começando da raiz I
-
         self.g_6_bfs = MeuGrafo()
         self.g_6_bfs.adiciona_vertice("A")
         self.g_6_bfs.adiciona_vertice("E")
@@ -482,9 +431,7 @@ class TestGrafo(unittest.TestCase):
         self.g_6_bfs.adiciona_aresta("a4", "K", "J")
         self.g_6_bfs.adiciona_aresta("a6", "K", "M")
         self.g_6_bfs.adiciona_aresta("a7", "M", "C")
-
         #Começando da raiz A
-
         self.g_7_bfs = MeuGrafo()
         self.g_7_bfs.adiciona_vertice("A")
         self.g_7_bfs.adiciona_vertice("E")
@@ -499,7 +446,6 @@ class TestGrafo(unittest.TestCase):
         self.g_7_bfs.adiciona_aresta("a4", "E", "M")
         self.g_7_bfs.adiciona_aresta("a6", "C", "X")
         self.g_7_bfs.adiciona_aresta("a5","C","Z")
-
         #começando na raiz C
         self.g_7_bfs = MeuGrafo()
         self.g_7_bfs.adiciona_vertice("A")
@@ -515,7 +461,6 @@ class TestGrafo(unittest.TestCase):
         self.g_7_bfs.adiciona_aresta("a2", "A", "I")
         self.g_7_bfs.adiciona_aresta("a1", "A", "E")
         self.g_7_bfs.adiciona_aresta("a4", "E", "M")
-
         #Começando da raiz M
         self.g_7_bfs = MeuGrafo()
         self.g_7_bfs.adiciona_vertice("A")
@@ -531,9 +476,7 @@ class TestGrafo(unittest.TestCase):
         self.g_7_bfs.adiciona_aresta("a3", "I", "C")
         self.g_7_bfs.adiciona_aresta("a5", "C", "Z")
         self.g_7_bfs.adiciona_aresta("a6", "C", "X")
-
         #Começando da raiz Z
-
         self.g_7_bfs = MeuGrafo()
         self.g_7_bfs.adiciona_vertice("A")
         self.g_7_bfs.adiciona_vertice("E")
@@ -549,6 +492,68 @@ class TestGrafo(unittest.TestCase):
         self.g_7_bfs.adiciona_aresta("a1", "A", "E")
         self.g_7_bfs.adiciona_aresta("a4", "E", "M")
 
+        #função caminho
+        self.grafo8 = MeuGrafo()
+        self.grafo8.adiciona_vertice("A")
+        self.grafo8.adiciona_vertice("B")
+        self.grafo8.adiciona_vertice("C")
+        self.grafo8.adiciona_vertice("D")
+        self.grafo8.adiciona_vertice("E")
+        self.grafo8.adiciona_vertice("F")
+        self.grafo8.adiciona_aresta("a1", "A", "B")
+        self.grafo8.adiciona_aresta("a2", "B", "C")
+        self.grafo8.adiciona_aresta("a3", "C", "D")
+        self.grafo8.adiciona_aresta("a4", "D", "E")
+        self.grafo8.adiciona_aresta("a5", "E", "F")
+        #grafo desconexo
+        self.grafo9 = MeuGrafo()
+        self.grafo9.adiciona_vertice("A")
+        self.grafo9.adiciona_vertice("B")
+        self.grafo9.adiciona_vertice("C")
+        self.grafo9.adiciona_vertice("D")
+        self.grafo9.adiciona_vertice("E")
+        self.grafo9.adiciona_vertice("F")
+        self.grafo9.adiciona_aresta("a1", "A", "B")
+        self.grafo9.adiciona_aresta("a2", "C", "D")
+        self.grafo9.adiciona_aresta("a3", "E", "F")
+        #grafo com ciclo
+        self.grafo10 = MeuGrafo()
+        self.grafo10.adiciona_vertice("A")
+        self.grafo10.adiciona_vertice("B")
+        self.grafo10.adiciona_vertice("C")
+        self.grafo10.adiciona_vertice("D")
+        self.grafo10.adiciona_vertice("E")
+        self.grafo10.adiciona_aresta("a1", "A", "B")
+        self.grafo10.adiciona_aresta("a2", "B", "C")
+        self.grafo10.adiciona_aresta("a3", "C", "D")
+        self.grafo10.adiciona_aresta("a4", "D", "E")
+        self.grafo10.adiciona_aresta("a5", "E", "A")
+
+        self.g1 = MeuGrafo()
+        self.g1.adiciona_vertice("A")
+        self.g1.adiciona_vertice("B")
+        self.g1.adiciona_vertice("C")
+        self.g1.adiciona_vertice("D")
+        self.g1.adiciona_aresta("a1", "A", "B")
+        self.g1.adiciona_aresta("a2", "B", "C")
+        self.g1.adiciona_aresta("a3", "C", "A")
+        self.g1.adiciona_aresta("a4", "C", "D")
+
+        self.g3 = MeuGrafo()
+        self.g3.adiciona_vertice("A")
+        self.g3.adiciona_vertice("B")
+        self.g3.adiciona_vertice("C")
+        self.g3.adiciona_vertice("D")
+        self.g3.adiciona_vertice("E")
+        self.g3.adiciona_vertice("F")
+        self.g3.adiciona_vertice("G")
+        self.g3.adiciona_aresta("a1", "A", "B")
+        self.g3.adiciona_aresta("a2", "B", "C")
+        self.g3.adiciona_aresta("a3", "C", "D")
+        self.g3.adiciona_aresta("a4", "D", "E")
+        self.g3.adiciona_aresta("a5", "E", "F")
+        self.g3.adiciona_aresta("a6", "F", "A")  # Ciclo aqui (A -> B -> C -> D -> E -> F -> A)
+        self.g3.adiciona_aresta("a7", "B", "G")
 
 
 
@@ -702,5 +707,34 @@ class TestGrafo(unittest.TestCase):
         self.assertEqual(self.g_7.bfs('C'), self.g_7_bfs)
         self.assertEqual(self.g_7.bfs('M'), self.g_7_bfs)
         self.assertEqual(self.g_7.bfs('Z'), self.g_7_bfs)
+
+    def teste_caminho(self):
+        self.assertEqual(self.grafo8.caminho(6),['A', 'a1', 'B', 'a2', 'C', 'a3', 'D', 'a4', 'E', 'a5', 'F'] )
+        self.assertEqual(self.grafo9.caminho(4), False)
+        self.assertEqual(self.g_5.caminho(5), ['C', 'a3', 'I', 'a2', 'A', 'a4', 'K', 'a5', 'J'])
+        self.assertEqual(self.g_7_bfs.caminho(5), ['C', 'a3', 'I', 'a2', 'A', 'a1', 'E', 'a4', 'M'])
+        self.assertEqual(self.g_5_dfs.caminho(6), False)
+        self.assertEqual(self.g_4_bfs.caminho(4), ['C', 'a2', 'B', 'a1', 'A', 'a3', 'D'])
+
+    def teste_ha_ciclo(self):
+        self.assertEqual(self.g1.ha_ciclo(), ['A', 'a1', 'B', 'a2', 'C', 'a3', 'A'])
+        self.assertEqual(self.grafo10.ha_ciclo(), ['A', 'a1', 'B', 'a2', 'C', 'a3', 'D', 'a4', 'E', 'a5', 'A'])
+        self.assertEqual(self.g_4_dfs.ha_ciclo(), False)
+        self.assertEqual(self.g_5.ha_ciclo(), False)
+        self.assertEqual(self.g3.ha_ciclo(), ['A', 'a1', 'B', 'a2', 'C', 'a3', 'D', 'a4', 'E', 'a5', 'F', 'a6', 'A'])
+
+
+
+    def teste_conexo(self):
+        self.assertEqual(self.g_4_bfs.conexo(), True)
+        self.assertEqual(self.grafo9.conexo(), False)
+        self.assertTrue(self.g_5_dfs.conexo())
+        self.assertTrue(self.g_4.conexo())
+        self.assertTrue(self.grafo10.conexo())
+        self.assertTrue(self.g1.conexo())
+
+
+
+
 
 
