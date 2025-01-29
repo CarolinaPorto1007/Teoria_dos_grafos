@@ -555,6 +555,42 @@ class TestGrafo(unittest.TestCase):
         self.g3.adiciona_aresta("a6", "F", "A")  # Ciclo aqui (A -> B -> C -> D -> E -> F -> A)
         self.g3.adiciona_aresta("a7", "B", "G")
 
+        self.g_p_dijkstra = MeuGrafo()
+        self.g_p_dijkstra.adiciona_vertice("J")
+        self.g_p_dijkstra.adiciona_vertice("C")
+        self.g_p_dijkstra.adiciona_vertice("E")
+        self.g_p_dijkstra.adiciona_vertice("P")
+        self.g_p_dijkstra.adiciona_vertice("M")
+        self.g_p_dijkstra.adiciona_vertice("T")
+        self.g_p_dijkstra.adiciona_vertice("Z")
+        self.g_p_dijkstra.adiciona_aresta('a1', 'J', 'C', 1)
+        self.g_p_dijkstra.adiciona_aresta('a2', 'C', 'E', 1)
+        self.g_p_dijkstra.adiciona_aresta('a3', 'C', 'E', 1)
+        self.g_p_dijkstra.adiciona_aresta('a4', 'P', 'C', 1)
+        self.g_p_dijkstra.adiciona_aresta('a5', 'C', 'P', 1)
+        self.g_p_dijkstra.adiciona_aresta('a6', 'C', 'T', 1)
+        self.g_p_dijkstra.adiciona_aresta('a7', 'M', 'C', 1)
+        self.g_p_dijkstra.adiciona_aresta('a8', 'M', 'T', 1)
+        self.g_p_dijkstra.adiciona_aresta('a9', 'T', 'Z', 1)
+
+        self.g_6 = MeuGrafo()
+        self.g_6.adiciona_vertice("A")
+        self.g_6.adiciona_vertice("B")
+        self.g_6.adiciona_vertice("C")
+        self.g_6.adiciona_vertice("D")
+        self.g_6.adiciona_vertice("E")
+        self.g_6.adiciona_vertice("F")
+        self.g_6.adiciona_vertice("G")
+        self.g_6.adiciona_aresta("a1", "A", "B", 1)
+        self.g_6.adiciona_aresta("a2", "A", "C", 4)
+        self.g_6.adiciona_aresta("a3", "B", "D", 5)
+        self.g_6.adiciona_aresta("a4", "D", "E", 2)
+        self.g_6.adiciona_aresta("a5", "E", "G", 2)
+        self.g_6.adiciona_aresta("a6", "C", "F", 3)
+        self.g_6.adiciona_aresta("a7", "F", "G", 4)
+        self.g_6.adiciona_aresta("a8", "C", "D", 1)
+        self.g_6.adiciona_aresta("a9", "D", "F", 1)
+
 
 
 
@@ -732,6 +768,21 @@ class TestGrafo(unittest.TestCase):
         self.assertTrue(self.g_4.conexo())
         self.assertTrue(self.grafo10.conexo())
         self.assertTrue(self.g1.conexo())
+
+
+    def teste_didijkstra(self):
+        self.assertEqual(self.grafo8.dijkstra("A", "F"), ['A', 'B', 'C', 'D', 'E', 'F'])
+        self.assertEqual(self.g3.dijkstra("A", "G"), ['A', 'B', 'G'])
+        self.assertEqual(self.g3.dijkstra("A", "G"), ['A', 'B', 'G'])
+        with self.assertRaises(VerticeInvalidoError):
+            self.assertEqual(self.grafo9.dijkstra("A","F"))
+        with self.assertRaises(VerticeInvalidoError):
+            self.assertEqual(self.g_p_dijkstra.dijkstra("J","Z"))
+        self.assertEqual(self.g_6.dijkstra("A", "E"), ['A', 'C', 'D', 'E'])
+        with self.assertRaises(VerticeInvalidoError):
+            self.assertEqual(self.g_p_sem_paralelas.dijkstra("A","Z"))
+
+
 
 
 

@@ -1,6 +1,7 @@
 from bibgrafo.grafo_lista_adj_nao_dir import GrafoListaAdjacenciaNaoDirecionado
 from bibgrafo.grafo_errors import *
 from collections import deque
+from math import inf
 
 
 class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
@@ -272,9 +273,51 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         return len(lista_dfs) == len(lista)
 
+    def dijkstra(self, U, V):
+        if not self.existe_rotulo_vertice(U) or not self.existe_rotulo_vertice(V):
+            raise VerticeInvalidoError
+        if not self.caminho(len(self.vertices)):  # Tratamento para caso o caminho não exista
+            raise VerticeInvalidoError
 
+        Beta = {vertice.rotulo: float('inf') for vertice in self.vertices}
+        Beta[U] = 0
+        predecessores = {vertice.rotulo: None for vertice in self.vertices}
+        arestas_exploradas = set()
+        vertices_explorados = set()
 
+        atual_vertice = U
+        while True:
+            adjacentes = list(self.arestas_sobre_vertice(atual_vertice))
 
+            if not adjacentes:
+                break
 
+            for aresta in adjacentes:
+                aresta_atual = self.get_aresta(aresta)
 
+                if Beta[aresta_atual.v2.rotulo] > Beta[aresta_atual.v1.rotulo] + aresta_atual.peso:
+                    Beta[aresta_atual.v2.rotulo] = Beta[aresta_atual.v1.rotulo] + aresta_atual.peso
+                    predecessores[aresta_atual.v2.rotulo] = aresta_atual.v1.rotulo
 
+            vertices_explorados.add(atual_vertice)
+            if atual_vertice == V:
+                break
+
+            candidatos = [v.rotulo for v in self.vertices if v.rotulo not in vertices_explorados]
+            if not candidatos:
+                break
+            atual_vertice = None
+            menor_custo = float('inf')
+            for vertice_candidato in candidatos:
+                if Beta[vertice_candidato] < menor_custo:
+                    menor_custo = Beta[vertice_candidato]
+                    atual_vertice = vertice_candidato
+
+        caminho_resultante = []
+        atual_no_caminho = V
+        while atual_no_caminho is not None:
+            caminho_resultante.append(atual_no_caminho)
+            atual_no_caminho = predecessores[atual_no_caminho]
+
+        caminho_resultante.reverse()
+        return caminho_resultante
