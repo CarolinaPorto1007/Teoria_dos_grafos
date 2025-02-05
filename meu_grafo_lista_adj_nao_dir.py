@@ -321,3 +321,47 @@ class MeuGrafo(GrafoListaAdjacenciaNaoDirecionado):
 
         caminho_resultante.reverse()
         return caminho_resultante
+
+    def bellman_ford(self, U, V):
+        if not self.existe_rotulo_vertice(U) or not self.existe_rotulo_vertice(V):
+            raise VerticeInvalidoError
+
+
+        Beta = {vertice.rotulo: float('inf') for vertice in self.vertices}
+        Beta[U] = 0
+        predecessores = {vertice.rotulo: None for vertice in self.vertices}
+
+
+        for _ in range(len(self.vertices) - 1):
+            for aresta_rotulo in self.arestas:
+                aresta = self.get_aresta(aresta_rotulo)
+                if aresta is None:
+                    continue
+                v1, v2, peso = aresta.v1.rotulo, aresta.v2.rotulo, aresta.peso
+
+
+                if Beta[v1] != float('inf') and Beta[v2] > Beta[v1] + peso:
+                    Beta[v2] = Beta[v1] + peso
+                    predecessores[v2] = v1
+
+
+                if Beta[v2] != float('inf') and Beta[v1] > Beta[v2] + peso:
+                    Beta[v1] = Beta[v2] + peso
+                    predecessores[v1] = v2
+
+
+        for aresta_rotulo in self.arestas:
+            aresta = self.get_aresta(aresta_rotulo)
+            v1, v2, peso = aresta.v1.rotulo, aresta.v2.rotulo, aresta.peso
+            if Beta[v1] != float('inf') and Beta[v2] > Beta[v1] + peso:
+                raise ValueError("O grafo contém ciclo com peso negativo")
+
+        caminho_resultante = []
+        atual_no_caminho = V
+        while atual_no_caminho is not None:
+            caminho_resultante.append(atual_no_caminho)
+            atual_no_caminho = predecessores[atual_no_caminho]
+
+        caminho_resultante.reverse()
+
+        return caminho_resultante

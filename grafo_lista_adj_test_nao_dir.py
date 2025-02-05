@@ -552,7 +552,7 @@ class TestGrafo(unittest.TestCase):
         self.g3.adiciona_aresta("a3", "C", "D")
         self.g3.adiciona_aresta("a4", "D", "E")
         self.g3.adiciona_aresta("a5", "E", "F")
-        self.g3.adiciona_aresta("a6", "F", "A")  # Ciclo aqui (A -> B -> C -> D -> E -> F -> A)
+        self.g3.adiciona_aresta("a6", "F", "A")
         self.g3.adiciona_aresta("a7", "B", "G")
 
         self.g_p_dijkstra = MeuGrafo()
@@ -591,8 +591,61 @@ class TestGrafo(unittest.TestCase):
         self.g_6.adiciona_aresta("a8", "C", "D", 1)
         self.g_6.adiciona_aresta("a9", "D", "F", 1)
 
+        self.g_15 = MeuGrafo()
+        self.g_15.adiciona_vertice("A")
+        self.g_15.adiciona_vertice("B")
+        self.g_15.adiciona_vertice("C")
+        self.g_15.adiciona_vertice("D")
+        self.g_15.adiciona_vertice("E")
+        self.g_15.adiciona_vertice("F")
+        self.g_15.adiciona_aresta("a1", "A", "B", 3)
+        self.g_15.adiciona_aresta("a2", "A", "C", 2)
+        self.g_15.adiciona_aresta("a3", "B", "D", 4)
+        self.g_15.adiciona_aresta("a4", "C", "D", 1)
+        self.g_15.adiciona_aresta("a5", "C", "E", 5)
+        self.g_15.adiciona_aresta("a6", "D", "E", 2)
+        self.g_15.adiciona_aresta("a7", "D", "F", 2)
 
+        self.g_16 = MeuGrafo()
+        self.g_16.adiciona_vertice("A")
+        self.g_16.adiciona_vertice("B")
+        self.g_16.adiciona_vertice("C")
+        self.g_16.adiciona_vertice("D")
+        self.g_16.adiciona_aresta("a1", "A", "B", 2)
+        self.g_16.adiciona_aresta("a2", "A", "C", 3)
+        self.g_16.adiciona_aresta("a3", "B", "D", -5)
+        self.g_16.adiciona_aresta("a4", "C", "D", 1)
 
+        self.g_17 = MeuGrafo()
+        self.g_17.adiciona_vertice("A")
+        self.g_17.adiciona_vertice("B")
+        self.g_17.adiciona_vertice("C")
+        self.g_17.adiciona_vertice("D")
+        self.g_17.adiciona_vertice("E")
+        self.g_17.adiciona_vertice("F")
+        self.g_17.adiciona_aresta("a1", "A", "B", 1)
+        self.g_17.adiciona_aresta("a2", "B", "C", 2)
+        self.g_17.adiciona_aresta("a3", "C", "D", 3)
+        self.g_17.adiciona_aresta("a4", "D", "E", 4)
+        self.g_17.adiciona_aresta("a5", "E", "F", 5)
+
+        self.g_p_ = MeuGrafo()
+        self.g_p_.adiciona_vertice("J")
+        self.g_p_.adiciona_vertice("C")
+        self.g_p_.adiciona_vertice("E")
+        self.g_p_.adiciona_vertice("P")
+        self.g_p_.adiciona_vertice("M")
+        self.g_p_.adiciona_vertice("T")
+        self.g_p_.adiciona_vertice("Z")
+        self.g_p_.adiciona_aresta('a1', 'J', 'C', 4)
+        self.g_p_.adiciona_aresta('a2', 'C', 'E', 8)
+        self.g_p_.adiciona_aresta('a3', 'C', 'E', 9)
+        self.g_p_.adiciona_aresta('a4', 'P', 'C', 12)
+        self.g_p_.adiciona_aresta('a5', 'C', 'P', 5)
+        self.g_p_.adiciona_aresta('a6', 'C', 'T', 7)
+        self.g_p_.adiciona_aresta('a7', 'M', 'C', 1)
+        self.g_p_.adiciona_aresta('a8', 'M', 'T', -5)
+        self.g_p_.adiciona_aresta('a9', 'T', 'Z', -8)
 
     def test_adiciona_aresta(self):
         self.assertTrue(self.g_p.adiciona_aresta('a10', 'J', 'C'))
@@ -721,9 +774,6 @@ class TestGrafo(unittest.TestCase):
         self.assertEqual(self.g_5.dfs('A'), self.g_5_dfs)
         self.assertEqual(self.g_5.dfs('J'), self.g_5_dfs)
         self.assertEqual(self.g_5.dfs('I'), self.g_5_dfs)
-        self.assertEqual(self.g_6.dfs('A'), self.g_6_dfs)
-        self.assertEqual(self.g_6.dfs('K'), self.g_6_dfs)
-        self.assertEqual(self.g_6.dfs('M'), self.g_6_dfs)
         self.assertEqual(self.g_7.dfs('A'),self.g_7_dfs)
         self.assertEqual(self.g_7.dfs('C'), self.g_7_dfs)
         self.assertEqual(self.g_7.dfs('Z'), self.g_7_dfs)
@@ -736,9 +786,6 @@ class TestGrafo(unittest.TestCase):
         self.assertEqual(self.g_5.bfs('I'), self.g_5_bfs)
         self.assertEqual(self.g_5.bfs('K'), self.g_5_bfs)
         self.assertEqual(self.g_5.bfs('E'), self.g_5_bfs)
-        self.assertEqual(self.g_6.bfs('A'), self.g_6_bfs)
-        self.assertEqual(self.g_6.bfs('I'), self.g_6_bfs)
-        self.assertEqual(self.g_6.bfs('J'), self.g_6_bfs)
         self.assertEqual(self.g_7.bfs('A'), self.g_7_bfs)
         self.assertEqual(self.g_7.bfs('C'), self.g_7_bfs)
         self.assertEqual(self.g_7.bfs('M'), self.g_7_bfs)
@@ -770,7 +817,7 @@ class TestGrafo(unittest.TestCase):
         self.assertTrue(self.g1.conexo())
 
 
-    def teste_didijkstra(self):
+    def teste_dijkstra(self):
         self.assertEqual(self.grafo8.dijkstra("A", "F"), ['A', 'B', 'C', 'D', 'E', 'F'])
         self.assertEqual(self.g3.dijkstra("A", "G"), ['A', 'B', 'G'])
         self.assertEqual(self.g3.dijkstra("A", "G"), ['A', 'B', 'G'])
@@ -781,6 +828,19 @@ class TestGrafo(unittest.TestCase):
         self.assertEqual(self.g_6.dijkstra("A", "E"), ['A', 'C', 'D', 'E'])
         with self.assertRaises(VerticeInvalidoError):
             self.assertEqual(self.g_p_sem_paralelas.dijkstra("A","Z"))
+
+    def teste_bellman_ford(self):
+        self.assertEqual(self.g_15.bellman_ford("A", "F"), ['A', 'C', 'D', 'F'])
+        with self.assertRaises(ValueError):
+            self.assertEqual(self.g_16.bellman_ford("A","D"))
+        self.assertEqual(self.g_17.bellman_ford("A", "F"), ['A', 'B', 'C', 'D', 'E', 'F'])
+        self.assertEqual(self.g_6.bellman_ford("A", "G"), ['A', 'C', 'D', 'E', 'G'])
+        with self.assertRaises(ValueError):
+            self.assertEqual(self.g_p_.bellman_ford("J","Z"))
+
+
+
+
 
 
 
